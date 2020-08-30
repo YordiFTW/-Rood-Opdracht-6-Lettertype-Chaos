@@ -1,0 +1,170 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Drawing.Text;
+using System.Text.RegularExpressions;
+
+namespace FontChaos2
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        
+        //database voor fonts
+        private string[] FontNames ={"Times New Roman", 
+            "Courier New", 
+            "Comic Sans MS", 
+            "Arial",  
+            "Century",  
+            "Calibri", 
+            "Fixedsys", 
+            "Lemon", 
+            "Segoe Print", 
+            "Impact", 
+            "Jaden", 
+            "Playball", 
+            "Sigmar One", 
+            "Unispace", 
+            "Wrangell Medium", 
+            "Marcellus SC", 
+            "Limelight"};
+
+ 
+        //private Brush[] FontBrushes ={Brushes.Red,Brushes.Green};
+
+        private Color[] FontColors =
+        {
+            Color.Red,
+            Color.Green,
+            Color.Blue,
+            Color.Orange,
+            Color.Brown,
+            Color.Magenta,
+            Color.Purple,
+            Color.BurlyWood,
+            Color.HotPink,
+        };
+
+        //RNG
+        private Random Rand = new Random();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        
+
+       
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            rchText.Text = "";
+            foreach (char ch in txtText.Text)
+            {
+                DrawCharacter(ch);
+            }
+            //string outputtext = txtText.Text;
+            //char[] characters = outputtext.ToCharArray();
+            //bool Isaan = true;
+
+            //FontFamily[] allFonts = FontFamily.Families;
+            // Random rnd = new Random(); //nummer generator met de naam rnd
+            //int allFontsNumberGen = rnd.Next(allFonts.Length); //interger met een willekeurige nummer
+            //var randomfont = allFonts[allFontsNumberGen];
+            //Font font = new Font(randomfont, 12, FontStyle.Regular);
+
+
+            //char ch;
+            //for (int i = 0; i < characters.Length - 1; i++)
+            {
+                //ch = characters[i];
+               // rchText.Select(1, 1);
+
+                //rchText.SelectionFont = new Font(randomfont, 12, FontStyle.Regular);
+                //rchText.AppendText(ch.ToString());
+
+
+
+
+            }
+            
+            //{
+            // char let = characters[i];
+            // foreach (char s in characters)
+            // {
+
+            // rchText.SelectionFont = font;
+            //   rchText.AppendText(characters.ToString());
+            // }
+
+
+            //}
+
+
+
+
+            //string charsStr = new string(characters);
+            //rchText.Text = (charsStr);
+
+            //rchText.Text = characters[1].ToString();
+
+
+            //if (rchText.Find = "a")
+            //{
+
+            //}
+
+            // foreach (char c in rchText.Text)
+            //{
+            //  ToggleBold();
+
+            //}
+
+        }
+
+
+        private void DrawText()
+        {
+            rchText.Text = "";
+            foreach (char ch in txtText.Text)
+            {
+                DrawCharacter(ch);
+            }
+        }
+
+        // Draw a character in a random font.
+        private void DrawCharacter(char ch)
+        {
+            //const float min_size = 25;
+            //const float max_size = 35;
+
+            // Pick the random font characteristics.
+
+            string font_name = FontNames[Rand.Next(0, FontNames.Length)];
+            //float font_size = (float)(min_size + Rand.NextDouble() * (max_size - min_size));
+            FontStyle font_style = FontStyle.Regular;
+            //if (Rand.Next(0, 2) == 0) font_name |= FontNames.;
+                //if (Rand.Next(0, 2) == 1) font_style |= FontStyle.Italic;
+                //if (Rand.Next(0,2) == 1) font_style |= FontStyle.Strikeout;
+                //if (Rand.Next(0,2) == 1) font_style |= FontStyle.Underline;
+
+                rchText.SelectionFont = new Font(font_name, 12, font_style);
+            //rchText.SelectionColor = FontColors[Rand.Next(0, FontColors.Length)];
+            rchText.AppendText(ch.ToString());
+        }
+
+        private void txtText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
